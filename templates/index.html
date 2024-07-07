@@ -13,16 +13,12 @@
     </header>
     <nav class="navbar">
         <button id="logoutButton" class="nav-button">Logout</button>
-        <a href="about.html" class="nav-link">About</a>
+        <a href="{{ url_for('about') }}" class="nav-link">About</a>
     </nav>
     <main>
         <p class="site-description animate-fade-in">
             SonicCleanse offers advanced audio processing to reduce noise
         </p>
-        <div class="animation-container">
-            <div class="noise-animation"></div>
-            <div class="calm-animation"></div>
-        </div>
         <div class="upload-section" id="uploadSection">
             <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
                 <div id="dropArea" class="drop-area">
@@ -32,13 +28,24 @@
                 <button type="submit" id="processButton">Process Audio</button>
             </form>
         </div>
-        {% if processed_audio %}
+        {% if original_audio %}
             <div class="audio-player">
+                <h3>Original Audio: {{ original_audio }}</h3>
                 <audio controls>
-                    <source src="{{ url_for('play_audio', filename='filtered_audio.mp3') }}" type="audio/mpeg">
+                    <source src="{{ url_for('play_audio', filename=original_audio) }}" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
-                <p>Processed Audio: <a href="{{ url_for('download_file', filename='filtered_audio.mp3') }}">Download</a></p>
+                <p><a href="{{ url_for('download_file', filename=original_audio) }}">Download Original</a></p>
+            </div>
+        {% endif %}
+        {% if processed_audio %}
+            <div class="audio-player">
+                <h3>Processed Audio: {{ processed_audio }}</h3>
+                <audio controls>
+                    <source src="{{ url_for('play_audio', filename=processed_audio) }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <p><a href="{{ url_for('download_file', filename='filtered_audio.mp3') }}">Download Processed</a></p>
             </div>
         {% endif %}
         <div class="developer-card">
@@ -46,7 +53,7 @@
             <div class="developer-content">
                 <h3>Aman</h3>
                 <p><a href="mailto:amansoudagar202@gmail.com">amansoudagar202@gmail.com</a></p>
-                <a href="contact.html"><button class="contact-button">Contact</button></a>
+                <a href="{{ url_for('contact') }}"><button class="contact-button">Contact</button></a>
             </div>
         </div>
     </main>

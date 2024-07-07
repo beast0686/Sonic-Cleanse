@@ -102,18 +102,6 @@ function handleFiles(files) {
 // Update input label on file select
 uploadInput.addEventListener('change', handleFileSelect);
 
-function handleFileSelect() {
-    const files = uploadInput.files;
-    if (files.length > 0) {
-        const fileName = files[0].name;
-        const dropText = document.querySelector('.drop-text');
-        dropText.textContent = `File selected: ${fileName}`;
-    } else {
-        const dropText = document.querySelector('.drop-text');
-        dropText.textContent = 'Drag and drop audio files here';
-    }
-}
-
 // Process button functionality (your existing code)
 document.getElementById('processButton').addEventListener('click', function() {
     const audioUpload = document.getElementById('audioUpload');
@@ -185,4 +173,5 @@ function handleFileSelect() {
         dropText.style.color = '#ffffff'; // Reset text color if no file selected
     }
 }
+
 

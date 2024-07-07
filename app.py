@@ -3,7 +3,6 @@ import os
 import librosa
 import scipy.signal
 import soundfile as sf
-import numpy as np
 
 app = Flask(__name__)
 
@@ -16,6 +15,16 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 
 @app.route('/download/<filename>', methods=['GET'])
@@ -47,7 +56,7 @@ def upload_file():
         # Process the uploaded audio file
         processed_file = process_audio(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-        return render_template('index.html', processed_audio=processed_file)
+        return render_template('index.html', original_audio=filename, processed_audio=processed_file)
 
 
 def process_audio(filepath):

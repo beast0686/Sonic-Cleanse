@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SonicCleanse: About</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>SonicCleanse</h1>
+    </header>
+    <nav class="navbar">
+        <button id="logoutButton" class="nav-button">Logout</button>
+        <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+    </nav>
+    <div class="content-box">
+        <main>
+            <div class="project-summary">
+                <h2>Project Summary: Noise Suppression System</h2>
+                <p><strong>Overview:</strong> The Noise Suppression System, branded as SonicCleanse, is an advanced web application designed to enhance audio quality by reducing background noise through sophisticated audio processing techniques.</p>
+                <p><strong>Key Features:</strong></p>
+                <ol>
+                    <li><strong>Upload and Processing:</strong> Users can upload audio files which undergo real-time processing to suppress unwanted noise frequencies.</li>
+                    <li><strong>High-Pass Filtering:</strong> Implemented using digital signal processing algorithms to filter out low-frequency noise, enhancing the clarity of the audio.</li>
+                    <li><strong>User Interface:</strong> A user-friendly interface allows seamless file upload, audio playback, and download of processed audio files.</li>
+                    <li><strong>Team and Mission:</strong> The project is driven by a dedicated team passionate about improving audio experiences through innovative technology. The mission focuses on leveraging cutting-edge algorithms to deliver superior noise suppression capabilities.</li>
+                    <li><strong>Technologies Used:</strong> Built with Python (Flask framework), HTML, CSS, JavaScript for frontend interactivity, and libraries such as librosa and scipy for audio processing.</li>
+                </ol>
+                <p><strong>Future Enhancements:</strong> Integration of machine learning models for adaptive noise cancellation, expansion of supported audio formats, and enhanced user customization options for noise reduction settings.</p>
+                <p><strong>Conclusion:</strong> SonicCleanse represents a significant step forward in noise suppression technology, offering users a powerful tool to enhance audio quality across various applications, from personal recordings to professional audio productions.</p>
+            </div>
+            <div class="developer-card">
+                <h2 class="developer-title">Developer</h2>
+                <div class="developer-content">
+                    <h3>Aman</h3>
+                    <p><a href="mailto:amansoudagar202@gmail.com">amansoudagar202@gmail.com</a></p>
+                    <a href="{{ url_for('contact') }}"><button class="contact-button">Contact</button></a>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2024 Noise Suppression System</p>
+        </footer>
+    </div>
+</div>
+<script src="../static/scripts.js"></script>
+</body>
+</html>
