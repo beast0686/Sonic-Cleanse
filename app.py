@@ -53,7 +53,6 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 
-
 # Home route
 @app.route('/')
 def index():
@@ -109,8 +108,10 @@ def signup():
 # Logout route
 @app.route('/logout')
 def logout():
-    session.pop('user_id', None)
-    return redirect(url_for('login'))
+    # Redirect to login if user is not logged in
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+    return render_template('login.html')
 
 
 # Contact route
